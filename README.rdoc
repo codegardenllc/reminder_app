@@ -1,8 +1,6 @@
-```
-rails g model Event event_type:references completed:boolean text time:datetime user:references
-rails g model EventType name
-rails g model Plan name limit:integer price:float
-rails g model User admin:boolean name email password number plan:references
-rails g model EventTypePlan event_type:references plan:references
-rake db:migrate
-```
+    rails g model Event event_type:references completed:boolean text time:datetime user:references
+    rails g model EventType name
+    rails g model Plan name limit:integer price:float
+    rails g model User admin:boolean name email password number plan:references
+    rails g model EventTypePlan event_type:references plan:references
+    rake db:migrate
