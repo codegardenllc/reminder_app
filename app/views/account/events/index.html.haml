@@ -1,0 +1,19 @@
+= link_to 'Add event', new_account_event_path
+
+%table
+  %tr
+    %th Event
+    %th Time
+    %th Type
+    %th Completed
+    %th Actions
+  - events.each do |event|
+    %tr
+      %td= link_to event.text, [:account, event]
+      %td= event.time.strftime('%B %d %Y %H:%M')
+      %td= event.event_type.name
+      %td= event.completed
+      %td
+        = link_to 'Edit', edit_account_event_path(event)
+        |
+        = link_to 'Delete', account_event_path(event), method: :delete

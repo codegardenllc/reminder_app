@@ -1,0 +1,5 @@
+= form_for [:account, event] do |f|
+  %p= f.select :event_type_id, options_from_collection_for_select(current_plan.event_types, :id, :name)
+  %p= f.datetime_select :time
+  %p= f.text_area :text
+  %p= f.submit 

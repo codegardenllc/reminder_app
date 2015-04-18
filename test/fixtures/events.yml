@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id            :integer          not null, primary key
+#  event_type_id :integer
+#  completed     :boolean          default(FALSE)
+#  text          :string(255)
+#  time          :datetime
+#  user_id       :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
