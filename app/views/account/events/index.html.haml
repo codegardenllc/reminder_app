@@ -2,7 +2,8 @@
   .alert.alert-danger
     You are over your limit and unable to create anymore events. Please upgrade to a higher plan.
 
-= link_to 'Add event', new_account_event_path
+%p
+  = link_to 'Add event', new_account_event_path, class: 'btn btn-primary', disabled: current_user.over_limit?
 
 %table.table.table-striped
   %tr
