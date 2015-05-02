@@ -1,4 +1,5 @@
 class Account::EventsController < Account::AccountController
+  before_action :over_limit, only: [:new, :create]
   expose(:events) { current_user.events }
 
   expose(:event)
@@ -46,5 +47,14 @@ class Account::EventsController < Account::AccountController
 
   def event_params
     params.require(:event).permit(:time, :text, :event_type_id)
+  end
+
+  def over_limit
+    if current_user.over_limit?
+      redirect_to account_events_path, alert: 'Oops! You are over your limit.'
+      return false
+    else
+      return true
+    end
   end
 end
