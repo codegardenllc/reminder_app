@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150418152408) do
+ActiveRecord::Schema.define(version: 20150502152932) do
 
   create_table "event_type_plans", force: true do |t|
     t.integer  "event_type_id"
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20150418152408) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "email_usage",            default: 0
+    t.integer  "sms_usage",              default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

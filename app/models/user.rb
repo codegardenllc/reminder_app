@@ -20,6 +20,8 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  email_usage            :integer          default(0)
+#  sms_usage              :integer          default(0)
 #
 
 class User < ActiveRecord::Base
@@ -36,5 +38,12 @@ class User < ActiveRecord::Base
   
   before_validation do
     self.plan ||= Plan.find_by_name(:free)
+  end
+
+  # This method determines whether the user is over the plan limit.
+  #
+  # @return [Boolean]
+  def over_limit?
+    self.plan.limit.to_i > 0 && self.sms_usage >= self.plan.limit
   end
 end

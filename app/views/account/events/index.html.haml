@@ -1,6 +1,10 @@
+- if current_user.over_limit?
+  .alert.alert-danger
+    You are over your limit. Please upgrade to a higher plan.
+
 = link_to 'Add event', new_account_event_path
 
-%table
+%table.table.table-striped
   %tr
     %th Event
     %th Time
