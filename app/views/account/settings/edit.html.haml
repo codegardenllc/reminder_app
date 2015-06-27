@@ -1,0 +1,14 @@
+= form_for current_user, url: account_update_path do |f|
+  .col-md-4
+    .form-group
+      = f.text_field :email, class: 'form-control'
+
+    .form-group
+      Current plan:
+      %strong= current_user.plan.name
+      %br
+      = link_to 'Change plan', account_plans_path
+
+    .form-group
+      = f.submit 'Update Settings', class: 'btn btn-primary'
+  .col-md-8

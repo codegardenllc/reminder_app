@@ -40,10 +40,21 @@ class User < ActiveRecord::Base
     self.plan ||= Plan.find_by_name(:free)
   end
 
+  def credit_cards
+    []
+  end
+
   # This method determines whether the user is over the plan limit.
   #
   # @return [Boolean]
   def over_limit?
     self.plan.limit.to_i > 0 && self.sms_usage >= self.plan.limit
+  end
+
+  def switch_plan(plan)
+    transaction do
+      # charge the user
+      self.update_attributes plan: plan
+    end
   end
 end

@@ -35,8 +35,14 @@ gem 'decent_exposure'
 
 gem 'whenever', :require => false
 
+gem 'nokogiri'
+
+gem 'stripe'
+
 group :development do
   gem 'annotate'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 # Use ActiveModel has_secure_password

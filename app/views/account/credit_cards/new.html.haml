@@ -1,0 +1,22 @@
+= form_for [:account, credit_card] do |f|
+  .container-fluid
+    .col-md-2
+      .form-group
+        = f.text_field :name_on_card, placeholder: 'Name on card', class: 'form-control'
+    .col-md-2
+      .form-group
+        = f.text_field :number, placeholder: 'Card number', class: 'form-control'
+  .container-fluid
+    .col-md-1
+      .form-group
+        = f.select :month, (1..12).to_a, { include_blank: 'Expiration month' }, { class: 'form-control' }
+    .col-md-1
+      .form-group
+        = f.select :year, (Date.today.year..Date.today.year + 20).to_a, { include_blank: 'Expiration year' }, { class: 'form-control' }
+    .col-md-2
+      .form-group
+        = f.text_field :cvv, placeholder: 'CVV', class: 'form-control'
+  .container-fluid
+    .col-md-2
+      .form-group
+        = f.submit 'Add card', class: 'btn btn-primary'

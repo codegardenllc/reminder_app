@@ -1,0 +1,19 @@
+%table.table
+  %thead
+    %tr
+      %th Plan
+      %th Email
+      %th SMS
+      %th Price
+      %th
+  - plans.each do |plan|
+    %tr
+      %td= plan.name.titleize
+      %td= plan.has_email? ? 'Unlimited' : '0'
+      %td= plan.has_sms? ? (plan.limit || 'Unlimited') : '0'
+      %td= number_to_currency(plan.price)
+      %td
+        - if current_user.plan == plan
+          %strong Your plan
+        - else
+          = link_to 'Switch', switch_account_plan_path(plan), method: :patch, class: 'btn btn-primary'
