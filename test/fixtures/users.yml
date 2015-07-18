@@ -22,6 +22,7 @@
 #  last_sign_in_ip        :string(255)
 #  email_usage            :integer          default(0)
 #  sms_usage              :integer          default(0)
+#  customer_token         :string(255)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

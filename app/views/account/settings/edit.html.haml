@@ -9,6 +9,11 @@
       %br
       = link_to 'Change plan', account_plans_path
 
+    - if current_user.credit_cards.any?
+      .form-group
+        Credit card:
+        %strong= current_user.credit_cards.first.last4
+
     .form-group
       = f.submit 'Update Settings', class: 'btn btn-primary'
   .col-md-8

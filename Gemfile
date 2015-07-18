@@ -39,6 +39,8 @@ gem 'nokogiri'
 
 gem 'stripe'
 
+gem 'twilio-ruby', '~> 4.2.1'
+
 group :development do
   gem 'annotate'
   gem 'better_errors'

@@ -1,5 +1,7 @@
-= form_for [:account, event] do |f|
-  %p= f.select :event_type_id, options_from_collection_for_select(current_plan.event_types, :id, :name)
-  %p= f.datetime_select :time
-  %p= f.text_area :text
-  %p= f.submit 
+.col-md-4
+  = form_for [:account, event] do |f|
+    .form-group= f.select :event_type_id, options_from_collection_for_select(current_plan.event_types, :id, :display_name), {}, class: 'form-control'
+    .form-group= f.datetime_select :time
+    .form-group= f.text_area :text, class: 'form-control'
+    .form-group= f.submit nil, class: 'btn btn-primary'
+.col-md-8

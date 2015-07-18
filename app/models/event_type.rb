@@ -11,4 +11,8 @@
 class EventType < ActiveRecord::Base
   has_many :event_type_plans
   has_many :plans, through: :event_type_plans
+
+  def display_name
+    name.humanize.gsub(/sms/i, 'SMS')
+  end
 end

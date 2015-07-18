@@ -7,7 +7,7 @@ class Account::CreditCardsController < Account::AccountController
   def create
     credit_card.attributes = credit_card_params
 
-    if credit_card.save
+    if credit_card.save(current_user)
       redirect_to account_plans_path
     else
       render :new
