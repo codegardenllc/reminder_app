@@ -1,4 +1,6 @@
 class Account::SettingsController < Account::AccountController
+  skip_before_action :require_mobile_number!, only: [:edit, :update]
+
   def edit
   end
 
@@ -17,6 +19,6 @@ class Account::SettingsController < Account::AccountController
   private
 
   def user_params
-    params.require(:user).permit(:email)
+    params.require(:user).permit(:email, :mobile_number)
   end
 end

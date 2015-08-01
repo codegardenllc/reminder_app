@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150718142136) do
+ActiveRecord::Schema.define(version: 20150801145221) do
 
   create_table "event_type_plans", force: true do |t|
     t.integer  "event_type_id"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20150718142136) do
     t.string   "name"
     t.string   "email"
     t.string   "password"
-    t.string   "number"
+    t.string   "mobile_number"
     t.integer  "plan_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20150718142136) do
     t.integer  "email_usage",            default: 0
     t.integer  "sms_usage",              default: 0
     t.string   "customer_token"
+    t.string   "twilio_number"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

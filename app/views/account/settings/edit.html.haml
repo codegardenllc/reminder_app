@@ -3,11 +3,20 @@
     .form-group
       = f.text_field :email, class: 'form-control'
 
+    - if current_user.plan.has_sms?
+      .form-group
+        = f.text_field :mobile_number, placeholder: 'Mobile number', class: 'form-control'
+
     .form-group
       Current plan:
-      %strong= current_user.plan.name
+      %strong= current_user.plan.name.humanize
       %br
       = link_to 'Change plan', account_plans_path
+
+    - unless current_user.twilio_number.blank?
+      .form-group
+        Phone number:
+        %strong= current_user.twilio_number
 
     - if current_user.credit_cards.any?
       .form-group

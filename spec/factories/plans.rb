@@ -10,14 +10,10 @@
 #  updated_at :datetime
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  limit: 1
-  price: 1.5
-
-two:
-  name: MyString
-  limit: 1
-  price: 1.5
+FactoryGirl.define do
+  factory :plan do
+    name { Faker::Name.name }
+    price { rand(20) + 5 }
+    limit { rand(1000) + 10 }
+  end
+end
