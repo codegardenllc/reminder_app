@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root 'homepage#index'
 
+  scope controller: :information do
+    get :pricing
+  end
+
   namespace :account do
     resources :events
     resources :plans, only: [:index] do

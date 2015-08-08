@@ -1,0 +1,44 @@
+%br/
+%br/
+%br/
+%section#plans
+  .container
+    .row
+      - plans.each do |plan|
+        .col-md-3.text-center
+          .panel.panel-default.panel-pricing{class: plan.name == 'small' ? 'panel-info' : ''}
+            .panel-heading
+              %i.fa.fa-calendar-check-o
+              %h3= plan.name.humanize
+            .panel-body.text-center
+              %p
+                %strong
+                  - if plan.price.to_i == 0
+                    Free
+                  - else
+                    = number_to_currency(plan.price, precision: 0)
+                    \/ mo
+            %ul.list-group.text-center
+              %li.list-group-item
+                %i.fa.fa-check
+                = plan.has_email? ? 'Unlimited' : '0'
+                Emails
+              %li.list-group-item
+                - if plan.has_sms?
+                  %i.fa.fa-check
+                  = plan.limit || 'Unlimited'
+                  SMS messages
+                - else
+                  .text-danger
+                    %i.fa.fa-times
+                    No SMS messages
+              %li.list-group-item
+                - if plan.has_sms?
+                  %i.fa.fa-check
+                  27/7 support
+                - else
+                  .text-danger
+                    %i.fa.fa-times
+                    No support
+            .panel-footer
+              = link_to 'Sign up', new_user_registration_path, class: "btn btn-lg btn-block #{plan.name == 'small' ? 'btn-info' : 'btn-default'}"

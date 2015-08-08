@@ -18,6 +18,7 @@
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
           %ul.nav.navbar-nav.navbar-right
+            %li= link_to 'Pricing', pricing_path
             - if current_user
               %li= link_to current_user.email, account_edit_path
               %li= link_to 'Log Out', destroy_user_session_path, method: :delete
@@ -29,3 +30,8 @@
     
     .container-fluid  
       = yield
+
+    .container-fluid{style: "margin-top: 80px;"}
+      Reminder App - Made by John Smith
+      %br
+      = link_to 'Pricing', pricing_path
