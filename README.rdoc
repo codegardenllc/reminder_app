@@ -4,3 +4,7 @@
     rails g model User admin:boolean name email password number plan:references
     rails g model EventTypePlan event_type:references plan:references
     rake db:migrate
+
+    export STRIPE_API_KEY=sk_test_P5x1hi05izb0YOlYzhP0bDod
+    export TWILIO_SID=AC02a4d46017e03ffea63bbf4f310bf6b8
+    export TWILIO_AUTH_TOKEN=4b832386d6b35fad7aaa7687241cc057
