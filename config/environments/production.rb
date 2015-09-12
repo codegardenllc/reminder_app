@@ -77,8 +77,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   require "stripe"
-  Stripe.api_key = ENV['STRIPE_API_KEY']
+  Stripe.api_key = 'sk_test_P5x1hi05izb0YOlYzhP0bDod'
   Stripe.api_version = "2015-06-15"
 
-  TWILIO_CLIENT = Twilio::REST::Client.new(ENV['TWILIO_SID'], ENV['TWILIO_AUTH_TOKEN'])
+  TWILIO_CLIENT = Twilio::REST::Client.new('AC02a4d46017e03ffea63bbf4f310bf6b8', '4b832386d6b35fad7aaa7687241cc057')
 end
