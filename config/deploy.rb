@@ -19,7 +19,6 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 namespace :deploy do
   desc 'Restart application'
   task :restart do
-    invoke 'delayed_job:restart'
     on roles(:app), in: :sequence, wait: 5 do
       execute "touch tmp/restart.txt"
     end
